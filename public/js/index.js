@@ -4,6 +4,7 @@ const submitBtn = document.getElementById('submitBtn');
 const middle_layer = document.getElementsByClassName("middle_layer")
 const inp_city = document.getElementById('inp_city');
 const city_name = document.getElementById('city_name');
+const country = document.getElementById('country');
 const temp = document.getElementById('temp');
 const mainDate = new Date();
 const day = document.getElementById("day");
@@ -39,18 +40,16 @@ const getInfo = async(event)=>{
         city_name.innerText = "Please Enter the City Name"
     }else{
         try{
-            let url1=`http://api.openweathermap.org/geo/1.0/direct?q=${city_value}&appid=839e31b45fd2fbd62336a1daff862290`
-            const response = await fetch(url1);
-            const data = await response.json();
-            let lat = data[0].lat;
-            let lon = data[0].lat;
-            let url2=`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=839e31b45fd2fbd62336a1daff862290`
-            const mainUrl = await fetch(url2);
+            let url = `https://api.openweathermap.org/data/2.5/weather?q=${city_value}&units=metric&appid=839e31b45fd2fbd62336a1daff862290`
+            const mainUrl = await fetch(url);
             const mainData = await mainUrl.json();
             let temperature = mainData.main.temp
             temp.innerText = temperature;
             city_name.style.textTransform = "uppercase";
             city_name.innerText = city_value;
+            let coun = mainData.sys.country
+            country.innerText = coun;
+
         }
         catch{
             city_name.innerText = "please Enter Valid City Name"
