@@ -197,7 +197,7 @@ html{
     border: 1px solid black;
     border-radius: 20px;
     height: 20rem;
-    width: 30rem;
+    width: 40rem;
     margin: auto;
     box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.4);
 }
@@ -239,6 +239,12 @@ html{
     .searchBar{
         width: 30rem;
     }
+    .temp_info{
+        width: 30rem;
+    }
+    .middle_layer p{
+        font-size: 3rem;
+    }
 }
 @media (max-width:350px) {
     .searchBar{
@@ -251,6 +257,18 @@ html{
     }
     .temp_info{
         width: 20rem;
+    }
+    .middle_layer p{
+        font-size: 2rem;
+        margin: 0 auto;
+    }
+    .middle_layer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .middle_layer img{
+        width: 8rem;
     }
 }
 @media (max-width:215px) {

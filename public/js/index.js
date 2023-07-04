@@ -5,6 +5,7 @@ const middle_layer = document.getElementsByClassName("middle_layer")
 const inp_city = document.getElementById('inp_city');
 const city_name = document.getElementById('city_name');
 const country = document.getElementById('country');
+const icon = document.getElementById('icon');
 const temp = document.getElementById('temp');
 const mainDate = new Date();
 const day = document.getElementById("day");
@@ -49,7 +50,8 @@ const getInfo = async(event)=>{
             city_name.innerText = city_value;
             let coun = mainData.sys.country
             country.innerText = coun;
-
+            let weatherIcon = mainData.weather[0].icon;
+            icon.src = "https://openweathermap.org/img/wn/"+weatherIcon+"@2x.png"
         }
         catch{
             city_name.innerText = "please Enter Valid City Name"
